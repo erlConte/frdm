@@ -1,14 +1,23 @@
 @import "tailwindcss";
 
+/*
+ * Design system — palette calda avorio/bordeaux.
+ * Tutti i colori sono custom properties: per cambiare tema basta
+ * modificare i valori qui sotto.
+ */
 :root {
-  --background: #0e0c0b;
-  --foreground: #f3ede7;
-  --surface: #171310;
-  --surface-2: #201a16;
-  --border: #322822;
-  --accent: #c1502e;
-  --accent-2: #e0a54a;
-  --muted: #a89a8d;
+  --background: #faf6f0; /* avorio caldo */
+  --foreground: #211d1a; /* quasi-nero caldo */
+  --surface: #ffffff;
+  --surface-2: #f3ece2;
+  --border: #e4dacb;
+  --accent: #a8432f; /* bordeaux/terracotta — CTA, link, dettagli */
+  --accent-2: #c9922e; /* senape/ocra — badge, hover, elementi minori */
+  --muted: #7a6f63; /* testo secondario, marrone-grigio caldo */
+
+  /* Accenti dei due percorsi del portfolio */
+  --track-tech: #c9922e;
+  --track-hosp: #a8432f;
 }
 
 @theme inline {
@@ -20,23 +29,35 @@
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
   --color-muted: var(--muted);
+  --color-track-tech: var(--track-tech);
+  --color-track-hosp: var(--track-hosp);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+h1,
+h2,
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--foreground);
+  color: var(--background);
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
+/* --- Animazioni hero: parole del titolo che entrano in scena sfalsate --- */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -50,4 +71,28 @@ body {
 
 .animate-fade-up {
   animation: fade-up 0.6s ease-out both;
+}
+
+@keyframes hero-word {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em) rotate(1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.hero-word {
+  display: inline-block;
+  animation: hero-word 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--word-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .hero-word {
+    animation: none;
+  }
 }

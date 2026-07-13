@@ -76,7 +76,7 @@ values
   'Piattaforma di connessione B2B tra Italia e America Latina: export positioning, produzione locale e partnership strategiche. Il progetto capofila dell''ecosistema imprenditoriale.',
   'A B2B connection platform between Italy and Latin America: export positioning, local production and strategic partnerships. The flagship project of the entrepreneurial ecosystem.',
   'Plataforma de conexión B2B entre Italia y América Latina: posicionamiento de exportación, producción local y alianzas estratégicas. El proyecto insignia del ecosistema empresarial.',
-  'https://mezchila.it',
+  'https://www.mezchila.it',
   1
 ),
 (
@@ -89,7 +89,7 @@ values
   'Federazione nazionale delle associazioni multiculturali, progetto in fase iniziale, pensato per dare struttura e rappresentanza alle realtà interculturali collegate a Mezchila.',
   'A national federation of multicultural associations, still in its early stages, designed to give structure and representation to the intercultural communities linked to Mezchila.',
   'Federación nacional de asociaciones multiculturales, proyecto en fase inicial, pensado para dar estructura y representación a las realidades interculturales vinculadas a Mezchila.',
-  null,
+  'https://fenam.website',
   2
 ),
 (
@@ -102,7 +102,7 @@ values
   'Eventi enogastronomici interculturali che uniscono Italia e America Latina, collegato a FENAM per l''accesso alla rete delle associazioni.',
   'Intercultural food-and-wine events connecting Italy and Latin America, linked to FENAM for access to the associations'' network.',
   'Eventos enogastronómicos interculturales que unen Italia y América Latina, vinculado a FENAM para el acceso a la red de asociaciones.',
-  null,
+  'https://www.enotempo.it',
   3
 );
 

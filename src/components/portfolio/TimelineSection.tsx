@@ -12,7 +12,7 @@ export function TimelineSection({
   items,
   locale,
 }: {
-  title: string;
+  title?: string;
   intro?: string;
   items: PortfolioItem[];
   locale: AppLocale;
@@ -20,11 +20,11 @@ export function TimelineSection({
   if (items.length === 0) return null;
 
   return (
-    <section className="py-12">
-      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+    <section className={title ? "py-12" : undefined}>
+      {title && <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>}
       {intro && <p className="mt-2 max-w-2xl text-sm text-muted">{intro}</p>}
 
-      <ol className="mt-8 space-y-8 border-l border-border pl-6">
+      <ol className={`space-y-8 border-l border-border pl-6 ${title ? "mt-8" : ""}`}>
         {items.map((item) => (
           <li key={item.id} className="relative">
             <span className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent" />
@@ -37,7 +37,7 @@ export function TimelineSection({
               )}
             </div>
             {item.subtitle && (
-              <p className="mt-0.5 text-sm text-accent-2">{item.subtitle}</p>
+              <p className="mt-0.5 text-sm text-accent">{item.subtitle}</p>
             )}
             {pickLocalized(item, locale, "description") && (
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">

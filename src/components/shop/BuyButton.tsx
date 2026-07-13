@@ -40,7 +40,7 @@ export function BuyButton({ listingId }: { listingId: string }) {
       >
         {loading ? t("redirecting") : t("buyNow")}
       </button>
-      {error && <p className="mt-2 text-sm text-red-400">{t("checkoutError")}</p>}
+      {error && <p className="mt-2 text-sm text-red-600">{t("checkoutError")}</p>}
     </div>
   );
 }

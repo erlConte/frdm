@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getShopListings } from "@/lib/data/shop";
 import { ListingCard } from "@/components/shop/ListingCard";
+import { HeroTitle } from "@/components/home/HeroTitle";
+import { ParallaxImage } from "@/components/home/ParallaxImage";
 
 export async function generateMetadata({
   params,
@@ -36,46 +37,50 @@ export default async function HomePage({
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_-10%,rgba(193,80,46,0.25),transparent_55%),radial-gradient(circle_at_90%_10%,rgba(224,165,74,0.15),transparent_45%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_-10%,rgba(168,67,47,0.10),transparent_55%),radial-gradient(circle_at_92%_8%,rgba(201,146,46,0.12),transparent_45%)]" />
         <div className="relative mx-auto flex max-w-6xl flex-col gap-8 px-6 py-20 sm:py-28">
           <div className="animate-fade-up">
-            <span className="inline-block rounded-full border border-border bg-surface px-3 py-1 text-xs uppercase tracking-widest text-accent-2">
+            <span className="inline-block rounded-full border border-border bg-surface px-3 py-1 text-xs uppercase tracking-widest text-accent">
               {t("kicker")}
             </span>
           </div>
+
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
-            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-border bg-surface sm:h-36 sm:w-36 animate-fade-up">
-              <Image
-                src="/images/profile-placeholder.svg"
-                alt="Filippo Resseguier de Miremont"
-                fill
-                sizes="144px"
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="max-w-2xl animate-fade-up">
-              <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
-                {t("heroTitle")}
+            <ParallaxImage
+              src="/images/profile-placeholder.svg"
+              alt="Filippo Resseguier de Miremont"
+              className="relative h-32 w-32 shrink-0 overflow-hidden rounded-2xl border border-border bg-surface-2 shadow-sm sm:h-44 sm:w-44"
+            />
+            <div className="max-w-2xl">
+              <h1 className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+                <HeroTitle text={t("heroTitle")} />
               </h1>
-              <p className="mt-3 text-lg text-accent-2 sm:text-xl">
-                {t("heroSubtitle")}
+              <p className="mt-4 text-lg text-accent sm:text-xl">
+                <HeroTitle text={t("heroSubtitle")} baseDelay={0.45} step={0.05} />
               </p>
             </div>
           </div>
-          <p className="max-w-2xl text-balance text-base leading-relaxed text-muted animate-fade-up sm:text-lg">
+
+          <p
+            className="max-w-2xl text-balance text-base leading-relaxed text-muted animate-fade-up sm:text-lg"
+            style={{ animationDelay: "0.7s" }}
+          >
             {t("heroBio")}
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-up">
+
+          <div
+            className="flex flex-wrap gap-4 animate-fade-up"
+            style={{ animationDelay: "0.85s" }}
+          >
             <Link
               href="/portfolio"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               {t("ctaPortfolio")}
             </Link>
             <Link
               href="/shop"
-              className="rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5"
+              className="rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-accent-2 hover:shadow-md"
             >
               {t("ctaShop")}
             </Link>
@@ -91,7 +96,7 @@ export default async function HomePage({
           {highlights.map((h) => (
             <div
               key={h.title}
-              className="rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent"
+              className="rounded-2xl border border-border bg-surface p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-accent-2 hover:shadow-md"
             >
               <h3 className="font-semibold">{h.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -102,18 +107,18 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="border-t border-border bg-surface/40">
+      <section className="border-t border-border bg-surface-2/50">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight">
+              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                 {t("shopTeaserTitle")}
               </h2>
               <p className="mt-1 text-sm text-muted">{t("shopTeaserText")}</p>
             </div>
             <Link
               href="/shop"
-              className="hidden shrink-0 text-sm font-semibold text-accent-2 hover:underline sm:block"
+              className="hidden shrink-0 text-sm font-semibold text-accent hover:underline sm:block"
             >
               Shop →
             </Link>

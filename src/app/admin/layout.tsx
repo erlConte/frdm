@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fontClasses } from "@/lib/fonts";
 import "../globals.css";
 import { AdminNav } from "./AdminNav";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it">
+    <html lang="it" className={fontClasses}>
       <body className="min-h-screen antialiased">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8">
           <AdminNav />

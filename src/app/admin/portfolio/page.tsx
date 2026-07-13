@@ -54,7 +54,7 @@ export default async function AdminPortfolioPage() {
                   <div className="flex justify-end gap-3">
                     <Link
                       href={`/admin/portfolio/${item.id}`}
-                      className="text-accent-2 hover:underline"
+                      className="text-accent hover:underline"
                     >
                       Modifica
                     </Link>

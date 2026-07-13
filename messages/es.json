@@ -45,7 +45,7 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "Un recorrido ecléctico entre hospitality, vino, tecnología y empresa.",
+    "intro": "No es un currículum: dos caminos paralelos que nacen de las mismas raíces y se entrelazan en los proyectos.",
     "sections": {
       "esperienza": "Experiencia profesional",
       "formazione": "Formación",
@@ -53,9 +53,15 @@
       "percorso_personale": "Camino personal",
       "progetto": "Proyectos empresariales"
     },
-    "sectionIntros": {
-      "progetto": "Un ecosistema conectado de proyectos entre Italia y América Latina.",
-      "percorso_personale": "El lado musical y científico, como contrapunto a hospitality y vino."
+    "tracks": {
+      "baseTitle": "Raíces comunes",
+      "baseIntro": "Antes de que los caminos se separen: bachillerato científico, piano clásico hasta el Grade 8 de ABRSM y los idiomas. La base que sostiene todo lo demás.",
+      "pathsTitle": "Dos caminos paralelos",
+      "pathsIntro": "Desde aquí la ruta se divide: informática y proyectos digitales por un lado, hospitality, vino y servicio por el otro. No compiten: avanzan juntos.",
+      "techLabel": "Tech & Digital",
+      "hospLabel": "Hospitality & Vino",
+      "crossTitle": "Donde los caminos se cruzan",
+      "crossIntro": "Mezchila, FENAM y Enotempo son el punto de encuentro: la tecnología y la cultura de la hospitalidad trabajando juntas para construir un puente entre Italia y América Latina. Aquí los dos carriles se convierten en un solo proyecto."
     },
     "visitSite": "Visitar el sitio",
     "empty": "Contenidos próximamente."

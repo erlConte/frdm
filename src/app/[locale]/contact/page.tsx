@@ -30,7 +30,7 @@ export default async function ContactPage({
 
       <p className="mt-6 text-sm">
         <span className="text-muted">{t("emailLabel")}: </span>
-        <a href={`mailto:${contactEmail}`} className="font-medium text-accent-2 hover:underline">
+        <a href={`mailto:${contactEmail}`} className="font-medium text-accent hover:underline">
           {contactEmail}
         </a>
       </p>

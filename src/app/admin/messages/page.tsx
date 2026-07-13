@@ -23,7 +23,7 @@ export default async function AdminMessagesPage() {
                 <p className="font-semibold">{message.name}</p>
                 <a
                   href={`mailto:${message.email}`}
-                  className="text-sm text-accent-2 hover:underline"
+                  className="text-sm text-accent hover:underline"
                 >
                   {message.email}
                 </a>

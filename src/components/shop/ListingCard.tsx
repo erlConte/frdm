@@ -13,7 +13,7 @@ export function ListingCard({ listing }: { listing: ShopListing }) {
   return (
     <Link
       href={`/shop/${listing.id}`}
-      className="group block overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent"
+      className="group block overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
     >
       <div className="relative aspect-square w-full overflow-hidden bg-surface-2">
         <Image
@@ -36,7 +36,7 @@ export function ListingCard({ listing }: { listing: ShopListing }) {
             {listing.category === "vino" ? t("categoryVino") : t("categoryAbbigliamento")}
           </p>
         </div>
-        <p className="shrink-0 font-semibold text-accent-2">
+        <p className="shrink-0 font-semibold text-accent">
           {formatPrice(listing.price_cents, locale)}
         </p>
       </div>

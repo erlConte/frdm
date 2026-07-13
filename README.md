@@ -27,6 +27,9 @@ dal pannello `/admin` senza toccare il codice.
    - `supabase/migrations/0002_seed.sql` — inserisce i contenuti iniziali del
      portfolio (esperienze, formazione, certificazioni, percorso personale,
      progetti Mezchila/FENAM/Enotempo). Lo shop parte volutamente vuoto.
+   - `supabase/migrations/0003_project_links.sql` — aggiorna i link dei
+     progetti (necessario solo se il seed era già stato eseguito prima di
+     questo aggiornamento).
 
    In alternativa, con la Supabase CLI collegata al progetto:
 
@@ -106,6 +109,20 @@ vercel deploy --prod
 Dopo il primo deploy, aggiorna l'endpoint webhook Stripe con il dominio
 definitivo (`https://tuodominio.it/api/stripe/webhook`) e verifica che
 `NEXT_PUBLIC_SITE_URL` corrisponda allo stesso dominio.
+
+## Design system
+
+La palette (avorio caldo, bordeaux/terracotta, senape) è definita come CSS
+custom properties in `src/app/globals.css` (`:root`): per cambiare i colori
+del sito basta modificare i valori lì. La tipografia usa Fraunces (serif,
+titoli) e Inter (sans, testo) via `next/font`, self-hosted in build.
+
+Nel portfolio, esperienze/formazione/certificazioni sono divise in due
+percorsi ("Tech & Digital" e "Hospitality & Vino") classificati per parole
+chiave in `src/lib/portfolio-tracks.ts` — il modello dati Supabase resta
+invariato. Le voci con parole chiave tech (IT, software, digital,
+informatica…) finiscono nel percorso tech; liceo, musica e lingue nelle
+"radici comuni"; tutto il resto in hospitality.
 
 ## Struttura del progetto
 

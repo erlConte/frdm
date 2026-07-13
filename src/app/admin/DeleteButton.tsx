@@ -16,7 +16,7 @@ export function DeleteButton({
         }
       }}
     >
-      <button type="submit" className="text-red-400 hover:underline cursor-pointer">
+      <button type="submit" className="text-red-600 hover:underline cursor-pointer">
         Elimina
       </button>
     </form>

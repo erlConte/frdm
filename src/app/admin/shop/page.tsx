@@ -46,8 +46,8 @@ export default async function AdminShopPage() {
                   <span
                     className={`rounded-full px-2.5 py-1 text-xs font-medium ${
                       listing.status === "disponibile"
-                        ? "bg-emerald-500/15 text-emerald-400"
-                        : "bg-white/10 text-muted"
+                        ? "bg-emerald-100 text-emerald-800"
+                        : "bg-surface-2 text-muted"
                     }`}
                   >
                     {listing.status}
@@ -57,7 +57,7 @@ export default async function AdminShopPage() {
                   <div className="flex justify-end gap-3">
                     <Link
                       href={`/admin/shop/${listing.id}`}
-                      className="text-accent-2 hover:underline"
+                      className="text-accent hover:underline"
                     >
                       Modifica
                     </Link>

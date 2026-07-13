@@ -86,10 +86,10 @@ export function ContactForm() {
       </button>
 
       {status === "success" && (
-        <p className="text-sm text-emerald-400">{t("success")}</p>
+        <p className="text-sm text-emerald-700">{t("success")}</p>
       )}
       {status === "error" && (
-        <p className="text-sm text-red-400">{t("error")}</p>
+        <p className="text-sm text-red-600">{t("error")}</p>
       )}
     </form>
   );

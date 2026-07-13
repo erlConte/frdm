@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { fontClasses } from "@/lib/fonts";
 import "../globals.css";
 
 export const dynamic = "force-dynamic";
@@ -46,7 +47,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={fontClasses}>
       <body className="flex min-h-screen flex-col antialiased">
         <NextIntlClientProvider>
           <Header />

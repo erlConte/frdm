@@ -56,13 +56,13 @@ export default async function ShopListingPage({ params }: PageProps) {
         <Gallery images={listing.images} alt={listing.title} />
 
         <div>
-          <p className="text-xs uppercase tracking-widest text-accent-2">
+          <p className="text-xs uppercase tracking-widest text-accent">
             {listing.category === "vino" ? tShop("categoryVino") : tShop("categoryAbbigliamento")}
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">
             {listing.title}
           </h1>
-          <p className="mt-4 text-2xl font-semibold text-accent-2">
+          <p className="mt-4 text-2xl font-semibold text-accent">
             {formatPrice(listing.price_cents, locale)}
           </p>
 

@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
         />
 
         {error && (
-          <p className="mt-3 text-sm text-red-400">Password errata, riprova.</p>
+          <p className="mt-3 text-sm text-red-600">Password errata, riprova.</p>
         )}
 
         <button
