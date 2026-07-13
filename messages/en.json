@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "meta": {
+    "home": {
+      "title": "Filippo Resseguier de Miremont",
+      "description": "Hospitality, wine, technology and intercultural entrepreneurship: portfolio and experience of Filippo Resseguier de Miremont."
+    },
+    "portfolio": {
+      "title": "Portfolio — Filippo Resseguier de Miremont",
+      "description": "Professional experience, education, certifications and entrepreneurial projects."
+    },
+    "shop": {
+      "title": "Shop — Filippo Resseguier de Miremont",
+      "description": "One-of-a-kind listings: wine and curated clothing."
+    },
+    "contact": {
+      "title": "Contact — Filippo Resseguier de Miremont",
+      "description": "Get in touch for collaborations, questions or curiosity."
+    }
+  },
+  "home": {
+    "kicker": "Welcome",
+    "heroTitle": "Filippo Resseguier de Miremont",
+    "heroSubtitle": "Hospitality, wine, technology and intercultural entrepreneurship",
+    "heroBio": "Food & Beverage Management student with experience in luxury hospitality, third-level FIS sommelier, founder of a commercial bridge project between Italy and Latin America. A parallel path in Computer Engineering blends mixology, wine, technology and business.",
+    "ctaPortfolio": "Explore the portfolio",
+    "ctaShop": "Go to the shop",
+    "highlightsTitle": "In short",
+    "highlight1Title": "Luxury hospitality",
+    "highlight1Text": "Bar commis at Hotel de Russie, Rocco Forte Hotels, with informal wine guidance for guests.",
+    "highlight2Title": "FIS Sommelier",
+    "highlight2Text": "Third-level wine sommelier, plus oil and cheese certifications from the Italian Sommelier Federation.",
+    "highlight3Title": "Intercultural entrepreneurship",
+    "highlight3Text": "Founder of Mezchila, a B2B commercial bridge between Italy and Latin America.",
+    "highlight4Title": "Technology",
+    "highlight4Text": "Parallel path in Computer Engineering and Applied Computer Science.",
+    "shopTeaserTitle": "From the shop",
+    "shopTeaserText": "Personally selected one-of-a-kind items: wine and clothing.",
+    "shopTeaserEmpty": "The shop is opening soon. Check back for the first listings."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "An eclectic path across hospitality, wine, technology and business.",
+    "sections": {
+      "esperienza": "Professional experience",
+      "formazione": "Education",
+      "certificazione": "Certifications",
+      "percorso_personale": "Personal path",
+      "progetto": "Entrepreneurial projects"
+    },
+    "sectionIntros": {
+      "progetto": "A connected ecosystem of projects between Italy and Latin America.",
+      "percorso_personale": "The musical and scientific side, a counterpoint to hospitality and wine."
+    },
+    "visitSite": "Visit the site",
+    "empty": "Content coming soon."
+  },
+  "shop": {
+    "title": "Shop",
+    "intro": "One-of-a-kind items, one at a time: no stock, no quantities.",
+    "filterCategory": "Category",
+    "filterStatus": "Status",
+    "all": "All",
+    "categoryVino": "Wine",
+    "categoryAbbigliamento": "Clothing",
+    "statusDisponibile": "Available",
+    "statusVenduto": "Sold",
+    "sold": "Sold",
+    "empty": "No listings at the moment. Check back soon.",
+    "viewDetails": "View details"
+  },
+  "shopDetail": {
+    "back": "Back to shop",
+    "buyNow": "Buy now",
+    "soldOut": "Item sold",
+    "description": "Description",
+    "checkoutError": "Could not start checkout. Please try again later.",
+    "redirecting": "Redirecting to checkout…"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "For collaborations, questions or curiosity, get in touch.",
+    "emailLabel": "Email",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Message sent, thank you! I'll reply as soon as possible.",
+      "error": "Something went wrong. Please try again or email me directly."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Built with Next.js"
+  },
+  "common": {
+    "readMore": "Read more",
+    "languageLabel": "Language"
+  }
+}

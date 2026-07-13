@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "shop": "Shop",
+    "contact": "Contatti"
+  },
+  "meta": {
+    "home": {
+      "title": "Filippo Resseguier de Miremont",
+      "description": "Hospitality, vino, tecnologia e imprenditoria interculturale: portfolio ed esperienze di Filippo Resseguier de Miremont."
+    },
+    "portfolio": {
+      "title": "Portfolio — Filippo Resseguier de Miremont",
+      "description": "Esperienze professionali, formazione, certificazioni e progetti imprenditoriali."
+    },
+    "shop": {
+      "title": "Shop — Filippo Resseguier de Miremont",
+      "description": "Annunci di oggetti unici: vino e abbigliamento selezionato."
+    },
+    "contact": {
+      "title": "Contatti — Filippo Resseguier de Miremont",
+      "description": "Scrivimi per collaborazioni, domande o curiosità."
+    }
+  },
+  "home": {
+    "kicker": "Benvenuto",
+    "heroTitle": "Filippo Resseguier de Miremont",
+    "heroSubtitle": "Hospitality, vino, tecnologia e imprenditoria interculturale",
+    "heroBio": "Studente di Food & Beverage Management con esperienza in hospitality luxury, sommelier FIS terzo livello, fondatore di un progetto di ponte commerciale tra Italia e America Latina. Un percorso parallelo in Ingegneria Informatica unisce mixology, vino, tecnologia e impresa.",
+    "ctaPortfolio": "Esplora il portfolio",
+    "ctaShop": "Vai allo shop",
+    "highlightsTitle": "In breve",
+    "highlight1Title": "Hospitality luxury",
+    "highlight1Text": "Commis de bar all'Hotel de Russie, Rocco Forte Hotels, con supporto informale ai clienti sul vino.",
+    "highlight2Title": "Sommelier FIS",
+    "highlight2Text": "Terzo livello vino, più certificazioni olio e formaggi dalla Federazione Italiana Sommelier.",
+    "highlight3Title": "Imprenditoria interculturale",
+    "highlight3Text": "Fondatore di Mezchila, ponte commerciale B2B tra Italia e America Latina.",
+    "highlight4Title": "Tecnologia",
+    "highlight4Text": "Percorso parallelo in Ingegneria Informatica e Applied Computer Science.",
+    "shopTeaserTitle": "Dallo shop",
+    "shopTeaserText": "Oggetti unici selezionati personalmente: vino e abbigliamento.",
+    "shopTeaserEmpty": "Lo shop apre a breve. Torna presto per i primi annunci."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Un percorso eclettico tra hospitality, vino, tecnologia e impresa.",
+    "sections": {
+      "esperienza": "Esperienze professionali",
+      "formazione": "Formazione",
+      "certificazione": "Certificazioni",
+      "percorso_personale": "Percorso personale",
+      "progetto": "Progetti imprenditoriali"
+    },
+    "sectionIntros": {
+      "progetto": "Un ecosistema di progetti collegati tra Italia e America Latina.",
+      "percorso_personale": "Il lato musicale e scientifico, a contrappunto di hospitality e vino."
+    },
+    "visitSite": "Visita il sito",
+    "empty": "Contenuti in arrivo."
+  },
+  "shop": {
+    "title": "Shop",
+    "intro": "Oggetti unici, uno alla volta: niente scorte, niente quantità.",
+    "filterCategory": "Categoria",
+    "filterStatus": "Stato",
+    "all": "Tutti",
+    "categoryVino": "Vino",
+    "categoryAbbigliamento": "Abbigliamento",
+    "statusDisponibile": "Disponibile",
+    "statusVenduto": "Venduto",
+    "sold": "Venduto",
+    "empty": "Nessun annuncio al momento. Torna presto.",
+    "viewDetails": "Scopri di più"
+  },
+  "shopDetail": {
+    "back": "Torna allo shop",
+    "buyNow": "Acquista ora",
+    "soldOut": "Oggetto venduto",
+    "description": "Descrizione",
+    "checkoutError": "Non è stato possibile avviare il pagamento. Riprova più tardi.",
+    "redirecting": "Reindirizzamento al pagamento…"
+  },
+  "contact": {
+    "title": "Contatti",
+    "intro": "Per collaborazioni, domande o curiosità, scrivimi.",
+    "emailLabel": "Email",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "send": "Invia messaggio",
+      "sending": "Invio in corso…",
+      "success": "Messaggio inviato, grazie! Ti risponderò appena possibile.",
+      "error": "Qualcosa è andato storto. Riprova o scrivi direttamente via email."
+    }
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati.",
+    "madeWith": "Realizzato con Next.js"
+  },
+  "common": {
+    "readMore": "Scopri di più",
+    "languageLabel": "Lingua"
+  }
+}
