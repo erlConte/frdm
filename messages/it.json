@@ -68,7 +68,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "Non un curriculum: due percorsi paralleli che partono dalle stesse radici e si intrecciano nei progetti.",
+    "eyebrow": "Il percorso, fino ad oggi",
+    "intro": "Non una lista di tappe, ma un sistema in movimento: ciò che sto facendo ora, le esperienze che mi hanno formato e i progetti in cui mondi diversi si incontrano.",
     "sections": {
       "esperienza": "Esperienze professionali",
       "formazione": "Formazione",
@@ -76,14 +77,23 @@
       "percorso_personale": "Percorso personale",
       "progetto": "Progetti imprenditoriali"
     },
+    "active": {
+      "kicker": "In corso adesso",
+      "title": "Quello che sto costruendo oggi.",
+      "intro": "Lavoro, studio e progetti attivi vengono prima della cronologia: sono il punto più fedele da cui capire dove sto andando.",
+      "badge": "In corso"
+    },
     "tracks": {
+      "baseKicker": "La base, in breve",
       "baseTitle": "Le radici comuni",
-      "baseIntro": "Prima che i percorsi si dividano: liceo scientifico, pianoforte classico fino al Grade 8 ABRSM e le lingue. La base che regge tutto il resto.",
-      "pathsTitle": "Due percorsi paralleli",
-      "pathsIntro": "Da qui la strada si sdoppia: da una parte l'informatica e i progetti digitali, dall'altra l'hospitality, il vino e il servizio. Non si escludono: corrono insieme.",
+      "baseIntro": "Liceo scientifico, musica e lingue: fondamenta importanti, raccontate senza togliere spazio a ciò che è venuto dopo.",
+      "pathsKicker": "Due correnti",
+      "pathsTitle": "Percorsi diversi, stessa direzione.",
+      "pathsIntro": "Tecnologia e hospitality non sono due capitoli separati. Crescono in parallelo, si influenzano e continuano ad avvicinarsi mentre il percorso evolve.",
       "techLabel": "Tech & Digital",
       "hospLabel": "Hospitality & Vino",
-      "crossTitle": "Dove i percorsi si intrecciano",
+      "crossKicker": "Il punto d'incontro",
+      "crossTitle": "Quando i percorsi diventano progetti.",
       "crossIntro": "Mezchila, FENAM ed Enotempo sono il punto d'incontro: la tecnologia e la cultura dell'ospitalità che lavorano insieme per costruire un ponte tra Italia e America Latina. È qui che i due binari diventano un progetto solo."
     },
     "visitSite": "Visita il sito",

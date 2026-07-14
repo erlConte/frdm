@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPortfolioItems } from "@/lib/data/portfolio";
-import { splitByTrack } from "@/lib/portfolio-tracks";
-import { TimelineSection } from "@/components/portfolio/TimelineSection";
-import { TrackColumn } from "@/components/portfolio/TrackColumn";
+import { isCurrentItem, splitByTrack } from "@/lib/portfolio-tracks";
+import { ActiveNow } from "@/components/portfolio/ActiveNow";
+import { PortfolioStreams } from "@/components/portfolio/PortfolioStreams";
+import { RootsStrip } from "@/components/portfolio/RootsStrip";
 import { ProjectGrid } from "@/components/portfolio/ProjectGrid";
 import { PathsConvergence } from "@/components/portfolio/PathsConvergence";
+import { ScrollReveal } from "@/components/home/ScrollReveal";
 import type { AppLocale } from "@/i18n/routing";
-import type { PortfolioSection } from "@/types/db";
+import type { PortfolioItem, PortfolioSection } from "@/types/db";
 
 export async function generateMetadata({
   params,
@@ -17,6 +19,18 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.portfolio" });
   return { title: t("title"), description: t("description") };
+}
+
+function activePriority(item: PortfolioItem) {
+  if (/hotel de russie/i.test(`${item.title_it} ${item.subtitle ?? ""}`)) return 0;
+  const sectionPriority: Record<PortfolioSection, number> = {
+    esperienza: 1,
+    progetto: 2,
+    formazione: 3,
+    certificazione: 4,
+    percorso_personale: 5,
+  };
+  return sectionPriority[item.section];
 }
 
 export default async function PortfolioPage({
@@ -33,6 +47,10 @@ export default async function PortfolioPage({
 
   const { tech, hospitality, base } = splitByTrack(items);
   const projects = items.filter((item) => item.section === "progetto");
+  const baseIds = new Set(base.map((item) => item.id));
+  const activeItems = items
+    .filter((item) => isCurrentItem(item) && !baseIds.has(item.id))
+    .sort((a, b) => activePriority(a) - activePriority(b));
 
   const groupLabels: Record<PortfolioSection, string> = {
     esperienza: t("sections.esperienza"),
@@ -43,77 +61,123 @@ export default async function PortfolioPage({
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-        {t("title")}
-      </h1>
-      <p className="mt-3 max-w-2xl text-lg text-muted">{t("intro")}</p>
+    <div className="overflow-hidden">
+      <section className="relative px-6 pb-20 pt-20 sm:pb-28 sm:pt-28">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[34rem] w-[70rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(101,217,237,0.2),rgba(111,133,255,0.12)_35%,transparent_70%)] blur-2xl" />
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+            {t("eyebrow")}
+          </p>
+          <h1 className="mt-5 max-w-5xl text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-7xl lg:text-8xl">
+            {t("title")}
+          </h1>
+          <p className="mt-7 max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg">
+            {t("intro")}
+          </p>
+        </div>
+      </section>
 
       {items.length === 0 ? (
-        <p className="mt-16 text-sm text-muted">{t("empty")}</p>
+        <p className="mx-auto max-w-7xl px-6 pb-24 text-sm text-muted">{t("empty")}</p>
       ) : (
         <>
-          {/* Le radici comuni: liceo, musica, lingue — prima dei due percorsi */}
-          {base.length > 0 && (
-            <section className="mt-16">
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                {t("tracks.baseTitle")}
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm text-muted">
-                {t("tracks.baseIntro")}
-              </p>
-              <div className="mt-6 max-w-3xl">
-                <TimelineSection items={base} locale={appLocale} />
-              </div>
+          {activeItems.length > 0 && (
+            <section className="mx-auto max-w-7xl px-4 pb-28 sm:px-6 sm:pb-36">
+              <ScrollReveal>
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-600">
+                      {t("active.kicker")}
+                    </p>
+                    <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1] tracking-[-0.045em] sm:text-6xl">
+                      {t("active.title")}
+                    </h2>
+                  </div>
+                  <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+                    {t("active.intro")}
+                  </p>
+                </div>
+                <ActiveNow items={activeItems} locale={appLocale} labels={groupLabels} />
+              </ScrollReveal>
             </section>
           )}
 
-          {/* I due percorsi paralleli */}
           {(tech.length > 0 || hospitality.length > 0) && (
-            <section className="mt-16">
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                {t("tracks.pathsTitle")}
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm text-muted">
-                {t("tracks.pathsIntro")}
-              </p>
+            <section className="relative mx-auto max-w-7xl px-4 pb-24 sm:px-6 sm:pb-32">
+              <ScrollReveal className="mx-auto max-w-4xl text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+                  {t("tracks.pathsKicker")}
+                </p>
+                <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1] tracking-[-0.045em] sm:text-6xl">
+                  {t("tracks.pathsTitle")}
+                </h2>
+                <p className="mx-auto mt-5 max-w-2xl text-balance text-sm leading-relaxed text-muted sm:text-base">
+                  {t("tracks.pathsIntro")}
+                </p>
+              </ScrollReveal>
 
-              <div className="mt-8 grid gap-6 lg:grid-cols-2">
-                <TrackColumn
-                  label={t("tracks.techLabel")}
-                  accentVar="var(--track-tech)"
-                  items={tech}
-                  locale={appLocale}
-                  groupLabels={groupLabels}
-                />
-                <TrackColumn
-                  label={t("tracks.hospLabel")}
-                  accentVar="var(--track-hosp)"
-                  items={hospitality}
-                  locale={appLocale}
-                  groupLabels={groupLabels}
-                />
+              <PortfolioStreams
+                tech={tech}
+                hospitality={hospitality}
+                locale={appLocale}
+                labels={{
+                  tech: t("tracks.techLabel"),
+                  hospitality: t("tracks.hospLabel"),
+                }}
+                groupLabels={groupLabels}
+                currentLabel={t("active.badge")}
+              />
+            </section>
+          )}
+
+          {projects.length > 0 && (
+            <section className="relative bg-[#101b24] px-4 py-28 text-white sm:px-6 sm:py-36">
+              <div className="pointer-events-none absolute left-[-10rem] top-[-14rem] h-[32rem] w-[32rem] rounded-full bg-accent/20 blur-[110px]" />
+              <div className="pointer-events-none absolute bottom-[-14rem] right-[-10rem] h-[30rem] w-[30rem] rounded-full bg-track-hosp/20 blur-[110px]" />
+              <div className="relative mx-auto max-w-7xl text-center">
+                <PathsConvergence />
+                <ScrollReveal>
+                  <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+                    {t("tracks.crossKicker")}
+                  </p>
+                  <h2 className="mx-auto mt-4 max-w-4xl text-balance text-4xl font-semibold leading-[1] tracking-[-0.045em] sm:text-6xl">
+                    {t("tracks.crossTitle")}
+                  </h2>
+                  <p className="mx-auto mt-5 max-w-2xl text-balance text-sm leading-relaxed text-white/58 sm:text-base">
+                    {t("tracks.crossIntro")}
+                  </p>
+                </ScrollReveal>
+                <div className="mt-12 text-left">
+                  <ProjectGrid
+                    items={projects}
+                    locale={appLocale}
+                    visitLabel={t("visitSite")}
+                  />
+                </div>
               </div>
             </section>
           )}
 
-          {/* Il punto d'incontro: i progetti */}
-          {projects.length > 0 && (
-            <section className="mt-20 text-center">
-              <PathsConvergence />
-              <h2 className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
-                {t("tracks.crossTitle")}
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-balance text-sm leading-relaxed text-muted sm:text-base">
-                {t("tracks.crossIntro")}
-              </p>
-              <div className="mt-10 text-left">
-                <ProjectGrid
-                  items={projects}
-                  locale={appLocale}
-                  visitLabel={t("visitSite")}
-                />
-              </div>
+          {base.length > 0 && (
+            <section className="px-4 py-24 sm:px-6 sm:py-28">
+              <ScrollReveal className="glass relative mx-auto max-w-7xl rounded-[2rem] px-6 py-7 sm:px-8 sm:py-9">
+                <div className="relative z-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
+                      {t("tracks.baseKicker")}
+                    </p>
+                    <h2 className="mt-2 text-2xl font-semibold tracking-[-0.025em] sm:text-3xl">
+                      {t("tracks.baseTitle")}
+                    </h2>
+                  </div>
+                  <p className="max-w-xl text-xs leading-relaxed text-muted sm:text-sm">
+                    {t("tracks.baseIntro")}
+                  </p>
+                </div>
+                <div className="relative z-10">
+                  <RootsStrip items={base} locale={appLocale} />
+                </div>
+              </ScrollReveal>
             </section>
           )}
         </>

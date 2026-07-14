@@ -14,6 +14,9 @@ import type { PortfolioItem } from "@/types/db";
  */
 export type PortfolioTrack = "tech" | "hospitality" | "base";
 
+const CURRENT_PATTERN =
+  /\b(oggi|in corso|present|current|currently|actualidad|en curso|hoy)\b/i;
+
 // \b non funziona bene con parole accentate, ma qui le keyword sono ASCII.
 const TECH_PATTERN =
   /\b(informatica|computer|acsai|software|digital|it|artificial intelligence|intelligenza artificiale|mezchila|engineering|ingegneria)\b/i;
@@ -49,4 +52,9 @@ export function splitByTrack(items: PortfolioItem[]) {
   }
 
   return { tech, hospitality, base };
+}
+
+/** Identifica le attività ancora aperte usando il periodo gestito dall'admin. */
+export function isCurrentItem(item: PortfolioItem): boolean {
+  return Boolean(item.period && CURRENT_PATTERN.test(item.period));
 }

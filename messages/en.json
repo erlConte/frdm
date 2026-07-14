@@ -68,7 +68,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "Not a résumé: two parallel paths growing from the same roots, weaving together in the projects.",
+    "eyebrow": "The journey, so far",
+    "intro": "Not a list of milestones, but a system in motion: what I am doing now, the experiences that shaped me and the projects where different worlds meet.",
     "sections": {
       "esperienza": "Professional experience",
       "formazione": "Education",
@@ -76,14 +77,23 @@
       "percorso_personale": "Personal path",
       "progetto": "Entrepreneurial projects"
     },
+    "active": {
+      "kicker": "Active now",
+      "title": "What I am building today.",
+      "intro": "Current work, studies and active projects come before chronology: they are the clearest place from which to understand where I am going.",
+      "badge": "In progress"
+    },
     "tracks": {
+      "baseKicker": "The foundation, briefly",
       "baseTitle": "Common roots",
-      "baseIntro": "Before the paths split: scientific high school, classical piano up to ABRSM Grade 8, and languages. The foundation everything else rests on.",
-      "pathsTitle": "Two parallel paths",
-      "pathsIntro": "From here the road forks: computer science and digital projects on one side, hospitality, wine and service on the other. They don't compete — they run side by side.",
+      "baseIntro": "Scientific high school, music and languages: meaningful foundations, kept concise so they do not overshadow what came next.",
+      "pathsKicker": "Two currents",
+      "pathsTitle": "Different paths, one direction.",
+      "pathsIntro": "Technology and hospitality are not separate chapters. They grow in parallel, influence each other and move closer together as the journey evolves.",
       "techLabel": "Tech & Digital",
       "hospLabel": "Hospitality & Wine",
-      "crossTitle": "Where the paths meet",
+      "crossKicker": "The intersection",
+      "crossTitle": "When paths become projects.",
       "crossIntro": "Mezchila, FENAM and Enotempo are the meeting point: technology and hospitality culture working together to build a bridge between Italy and Latin America. This is where the two tracks become a single project."
     },
     "visitSite": "Visit the site",

@@ -68,7 +68,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "No es un currículum: dos caminos paralelos que nacen de las mismas raíces y se entrelazan en los proyectos.",
+    "eyebrow": "El recorrido, hasta hoy",
+    "intro": "No es una lista de etapas, sino un sistema en movimiento: lo que hago ahora, las experiencias que me formaron y los proyectos donde se encuentran mundos distintos.",
     "sections": {
       "esperienza": "Experiencia profesional",
       "formazione": "Formación",
@@ -76,14 +77,23 @@
       "percorso_personale": "Camino personal",
       "progetto": "Proyectos empresariales"
     },
+    "active": {
+      "kicker": "En curso ahora",
+      "title": "Lo que estoy construyendo hoy.",
+      "intro": "El trabajo, los estudios y los proyectos activos aparecen antes que la cronología: son el punto más claro para entender hacia dónde voy.",
+      "badge": "En curso"
+    },
     "tracks": {
+      "baseKicker": "La base, en breve",
       "baseTitle": "Raíces comunes",
-      "baseIntro": "Antes de que los caminos se separen: bachillerato científico, piano clásico hasta el Grade 8 de ABRSM y los idiomas. La base que sostiene todo lo demás.",
-      "pathsTitle": "Dos caminos paralelos",
-      "pathsIntro": "Desde aquí la ruta se divide: informática y proyectos digitales por un lado, hospitality, vino y servicio por el otro. No compiten: avanzan juntos.",
+      "baseIntro": "Bachillerato científico, música e idiomas: fundamentos importantes, contados de forma breve para no quitar espacio a lo que vino después.",
+      "pathsKicker": "Dos corrientes",
+      "pathsTitle": "Caminos distintos, una dirección.",
+      "pathsIntro": "Tecnología y hospitality no son capítulos separados. Crecen en paralelo, se influyen y se acercan mientras el recorrido evoluciona.",
       "techLabel": "Tech & Digital",
       "hospLabel": "Hospitality & Vino",
-      "crossTitle": "Donde los caminos se cruzan",
+      "crossKicker": "El punto de encuentro",
+      "crossTitle": "Cuando los caminos se convierten en proyectos.",
       "crossIntro": "Mezchila, FENAM y Enotempo son el punto de encuentro: la tecnología y la cultura de la hospitalidad trabajando juntas para construir un puente entre Italia y América Latina. Aquí los dos carriles se convierten en un solo proyecto."
     },
     "visitSite": "Visitar el sitio",
