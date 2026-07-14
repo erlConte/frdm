@@ -6,36 +6,44 @@ export function Header() {
   const t = useTranslations("nav");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <div className="glass relative mx-auto flex max-w-6xl items-center justify-between rounded-full px-3 py-2.5 sm:px-4">
         <Link
           href="/"
-          className="text-xs font-semibold tracking-tight text-foreground sm:text-sm"
+          aria-label={t("home")}
+          className="relative z-10 flex items-center gap-2 rounded-full py-1 pl-1 pr-2 text-xs font-semibold tracking-[0.08em] text-foreground"
         >
-          Filippo R. de Miremont
+          <span className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-[0.62rem] font-semibold tracking-[0.06em] text-white shadow-sm">
+            FR
+          </span>
+          <span className="hidden sm:inline">Filippo R. de Miremont</span>
+          <span className="sm:hidden">FRDM</span>
         </Link>
 
-        <nav className="flex items-center gap-4 text-xs sm:gap-6 sm:text-sm">
+        <nav className="relative z-10 flex items-center gap-0.5 rounded-full bg-white/36 p-1 text-[0.65rem] font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] sm:gap-1 sm:text-xs">
           <Link
             href="/portfolio"
-            className="text-muted transition-colors hover:text-foreground"
+            className="rounded-full px-2 py-2 text-muted transition-all hover:bg-white/65 hover:text-foreground sm:px-4"
           >
             {t("portfolio")}
           </Link>
           <Link
             href="/shop"
-            className="text-muted transition-colors hover:text-foreground"
+            className="rounded-full px-2 py-2 text-muted transition-all hover:bg-white/65 hover:text-foreground sm:px-4"
           >
             {t("shop")}
           </Link>
           <Link
             href="/contact"
-            className="text-muted transition-colors hover:text-foreground"
+            className="hidden rounded-full px-4 py-2 text-muted transition-all hover:bg-white/65 hover:text-foreground lg:block"
           >
             {t("contact")}
           </Link>
-          <LocaleSwitcher />
         </nav>
+
+        <div className="relative z-10">
+          <LocaleSwitcher />
+        </div>
       </div>
     </header>
   );
