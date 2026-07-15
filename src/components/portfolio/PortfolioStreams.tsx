@@ -212,7 +212,6 @@ export function PortfolioStreams({
           d="M750 18 C850 112 675 222 750 330 S850 500 735 615 S665 790 750 875 C750 910 630 914 548 944 C522 953 508 958 500 960"
         />
         <path className="portfolio-route-stem" d="M500 960 C500 972 500 986 500 1000" />
-        <circle className="convergence-point" cx="500" cy="960" r="7" fill="white" />
       </svg>
 
       <div className="portfolio-stream-grid relative grid gap-16 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24">
