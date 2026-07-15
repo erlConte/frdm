@@ -82,9 +82,7 @@
       "kicker": "En curso ahora",
       "title": "Lo que estoy construyendo hoy.",
       "intro": "El trabajo, los estudios y los proyectos activos aparecen antes que la cronología: son el punto más claro para entender hacia dónde voy.",
-      "badge": "En curso",
-      "networkTitle": "Un ecosistema empresarial",
-      "networkText": "Tres proyectos, una sola red que conecta relaciones multiculturales, trabajo digital y experiencias enogastronómicas."
+      "badge": "En curso"
     },
     "tracks": {
       "baseKicker": "La base, en breve",

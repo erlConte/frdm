@@ -6,7 +6,6 @@ import { ActiveNow } from "@/components/portfolio/ActiveNow";
 import { PortfolioStreams } from "@/components/portfolio/PortfolioStreams";
 import { RootsStrip } from "@/components/portfolio/RootsStrip";
 import { ProjectGrid } from "@/components/portfolio/ProjectGrid";
-import { PathsConvergence } from "@/components/portfolio/PathsConvergence";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
 import type { AppLocale } from "@/i18n/routing";
 import type { PortfolioItem, PortfolioSection } from "@/types/db";
@@ -50,6 +49,7 @@ export default async function PortfolioPage({
   const baseIds = new Set(base.map((item) => item.id));
   const activeItems = items
     .filter((item) => isCurrentItem(item) && !baseIds.has(item.id))
+    .filter((item) => !(item.section === "esperienza" && /mezchila/i.test(`${item.title_it} ${item.title_en}`)))
     .sort((a, b) => activePriority(a) - activePriority(b));
 
   const groupLabels: Record<PortfolioSection, string> = {
@@ -98,13 +98,7 @@ export default async function PortfolioPage({
                     {t("active.intro")}
                   </p>
                 </div>
-                <ActiveNow
-                  items={activeItems}
-                  locale={appLocale}
-                  labels={groupLabels}
-                  networkTitle={t("active.networkTitle")}
-                  networkText={t("active.networkText")}
-                />
+                <ActiveNow items={activeItems} locale={appLocale} labels={groupLabels} />
               </ScrollReveal>
             </section>
           )}
@@ -136,8 +130,6 @@ export default async function PortfolioPage({
               />
             </section>
           )}
-
-          {projects.length > 0 && <PathsConvergence />}
 
           {projects.length > 0 && (
             <section className="relative bg-[#101b24] px-4 pb-28 pt-12 text-white sm:px-6 sm:pb-36 sm:pt-16">

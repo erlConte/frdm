@@ -2,6 +2,7 @@ import type { PortfolioItem, PortfolioSection } from "@/types/db";
 import type { AppLocale } from "@/i18n/routing";
 import { isCurrentItem } from "@/lib/portfolio-tracks";
 import { ScrollReveal } from "@/components/home/ScrollReveal";
+import { PathsConvergence } from "@/components/portfolio/PathsConvergence";
 
 function pickLocalized(
   item: PortfolioItem,
@@ -83,7 +84,6 @@ function TechSystem({
       </div>
 
       <div className="tech-system-map relative rounded-[2.5rem] px-3 py-6 sm:px-6 sm:py-10">
-        <div className="tech-data-rail" aria-hidden="true" />
         <div className="tech-system-entries relative flex flex-1 flex-col justify-evenly gap-12 sm:gap-16">
           {items.map((item, index) => (
             <ScrollReveal key={item.id} className={`reveal-delay-${Math.min(index % 3, 2)}`}>
@@ -102,7 +102,6 @@ function TechSystem({
             </ScrollReveal>
           ))}
         </div>
-        <div className="tech-system-terminal" aria-hidden="true" />
       </div>
     </div>
   );
@@ -138,15 +137,6 @@ function HospitalityMap({
         </div>
         <span className="hospitality-map-coordinates hospitality-map-coordinates-top" aria-hidden="true">41°54&apos;N · 12°29&apos;E</span>
         <span className="hospitality-map-coordinates hospitality-map-coordinates-bottom" aria-hidden="true">— · — · ∞</span>
-        <svg
-          className="hospitality-route pointer-events-none absolute inset-0 h-full w-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M50 0 C 82 7, 75 17, 46 23 S 15 38, 51 45 S 84 58, 48 65 S 17 80, 52 87 S 67 96, 50 100" />
-        </svg>
-
         <div className="relative space-y-16 py-8 sm:space-y-24 sm:py-12 lg:space-y-28">
           {items.map((item, index) => (
             <ScrollReveal
@@ -184,7 +174,6 @@ function HospitalityMap({
             </ScrollReveal>
           ))}
         </div>
-        <div className="hospitality-map-terminal" aria-hidden="true"><span>×</span></div>
       </div>
     </div>
   );
@@ -207,7 +196,26 @@ export function PortfolioStreams({
 }) {
   return (
     <div className="portfolio-streams relative mt-12 lg:mt-16">
-      <div className="relative grid gap-16 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24">
+      <svg
+        className="portfolio-route-network pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="none"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          className="portfolio-route-line portfolio-route-tech"
+          d="M250 18 C225 175 285 330 250 480 S278 720 250 875 C250 910 382 914 455 944 C478 953 492 958 500 960"
+        />
+        <path
+          className="portfolio-route-line portfolio-route-hospitality"
+          d="M750 18 C850 112 675 222 750 330 S850 500 735 615 S665 790 750 875 C750 910 630 914 548 944 C522 953 508 958 500 960"
+        />
+        <path className="portfolio-route-stem" d="M500 960 C500 972 500 986 500 1000" />
+        <circle className="convergence-point" cx="500" cy="960" r="7" fill="white" />
+      </svg>
+
+      <div className="portfolio-stream-grid relative grid gap-16 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24">
         <TechSystem
           label={labels.tech}
           items={tech}
@@ -223,6 +231,7 @@ export function PortfolioStreams({
           currentLabel={currentLabel}
         />
       </div>
+      <PathsConvergence />
     </div>
   );
 }

@@ -434,21 +434,15 @@ button {
   filter: blur(8px);
 }
 
-.active-now-network {
+.active-now-project {
   background:
     radial-gradient(circle at 92% 4%, rgba(221, 158, 93, 0.34), transparent 38%),
     radial-gradient(circle at 8% 96%, rgba(155, 62, 87, 0.18), transparent 42%),
     linear-gradient(140deg, rgba(255, 252, 246, 0.8), rgba(255, 255, 255, 0.4));
 }
 
-.active-now-network-lines {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 22% 28%, var(--track-hosp) 0 2px, transparent 3px),
-    radial-gradient(circle at 76% 70%, var(--amber) 0 2px, transparent 3px),
-    linear-gradient(32deg, transparent 49.7%, rgba(155, 62, 87, 0.11) 50%, transparent 50.3%);
-  opacity: 0.75;
+.active-now-project .active-now-glow {
+  background: radial-gradient(circle, rgba(218, 139, 56, 0.3), transparent 68%);
 }
 
 .current-pulse {
@@ -458,6 +452,41 @@ button {
 
 .portfolio-streams {
   isolation: isolate;
+  z-index: 1;
+}
+
+.portfolio-route-network {
+  z-index: 4;
+}
+
+.portfolio-route-line,
+.portfolio-route-stem {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+
+.portfolio-route-line {
+  stroke-width: 3;
+  stroke-dasharray: 8 9;
+  animation: convergence-flow 9s linear infinite;
+}
+
+.portfolio-route-tech {
+  stroke: var(--track-tech);
+  filter: drop-shadow(0 0 6px rgba(49, 87, 246, 0.24));
+}
+
+.portfolio-route-hospitality {
+  stroke: var(--track-hosp);
+  filter: drop-shadow(0 0 6px rgba(155, 62, 87, 0.2));
+  animation-direction: reverse;
+}
+
+.portfolio-route-stem {
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 2;
+  stroke-dasharray: 4 8;
+  animation: convergence-flow 4s linear infinite;
 }
 
 .portfolio-stream {
@@ -514,24 +543,8 @@ button {
   background-size: 28px 28px;
 }
 
-.tech-data-rail {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--track-tech) 7%,
-    var(--cyan) 50%,
-    var(--track-tech) 93%,
-    transparent
-  );
-  box-shadow: 0 0 18px rgba(49, 87, 246, 0.22);
-}
-
 .tech-system-entry {
+  z-index: 6;
   margin-inline: auto;
   width: 94%;
   max-width: 32rem;
@@ -549,20 +562,6 @@ button {
   background: var(--track-tech);
   box-shadow: 0 0 0 5px rgba(49, 87, 246, 0.12),
     0 0 20px rgba(49, 87, 246, 0.3);
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.tech-system-terminal {
-  position: absolute;
-  bottom: -0.42rem;
-  left: 50%;
-  z-index: 4;
-  width: 0.85rem;
-  height: 0.85rem;
-  border: 3px solid white;
-  border-radius: 0.22rem;
-  background: var(--track-tech);
-  box-shadow: 0 0 0 6px rgba(49, 87, 246, 0.12), 0 0 24px rgba(49, 87, 246, 0.35);
   transform: translateX(-50%) rotate(45deg);
 }
 
@@ -584,7 +583,6 @@ button {
     inset 0 1px 0 rgba(255, 252, 226, 0.82),
     inset 0 0 90px rgba(112, 66, 37, 0.1);
   color: #33251d;
-  transform: rotate(0.25deg);
 }
 
 .hospitality-map::after {
@@ -650,17 +648,6 @@ button {
   transform: rotate(16deg);
 }
 
-.hospitality-route path {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-  stroke: var(--track-hosp);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-dasharray: 5 9;
-  filter: drop-shadow(0 0 5px rgba(155, 62, 87, 0.2));
-  animation: map-route-flow 12s linear infinite;
-}
-
 .hospitality-compass {
   position: absolute;
   right: 1.4rem;
@@ -716,7 +703,7 @@ button {
 
 .hospitality-stop-wrap {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   width: 76%;
 }
 
@@ -822,29 +809,19 @@ button {
   font: inherit;
 }
 
-.hospitality-map-terminal {
-  position: absolute;
-  bottom: -0.75rem;
-  left: 50%;
-  z-index: 5;
-  display: grid;
-  width: 2.2rem;
-  height: 2.2rem;
-  place-items: center;
-  border: 1px solid rgba(96, 58, 37, 0.5);
-  border-radius: 50%;
-  background: #e7c58f;
-  color: var(--track-hosp);
-  font-family: var(--font-display), serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  box-shadow: 0 0 0 7px rgba(239, 213, 172, 0.56);
-  transform: translateX(-50%) rotate(-6deg);
+.paths-convergence-bridge {
+  isolation: isolate;
+  margin-top: -1px;
 }
 
-.paths-convergence-bridge {
-  margin-top: -1px;
-  background: linear-gradient(to bottom, transparent 0 34%, rgba(16, 27, 36, 0.35) 58%, #101b24 76% 100%);
+.paths-convergence-bridge::before {
+  position: absolute;
+  inset: 0 auto 0 50%;
+  z-index: 0;
+  width: 100vw;
+  background: linear-gradient(to bottom, transparent 0 22%, rgba(16, 27, 36, 0.35) 52%, #101b24 76% 100%);
+  content: "";
+  transform: translateX(-50%);
 }
 
 .roots-group + .roots-group {
@@ -863,20 +840,6 @@ button {
 .roots-entry + .roots-entry {
   border-top: 1px dashed rgba(71, 91, 105, 0.14);
   padding-top: 1.25rem;
-}
-
-.convergence-stem {
-  stroke-dasharray: 4 8;
-  animation: convergence-flow 4s linear infinite;
-}
-
-.convergence-path {
-  stroke-dasharray: 8 9;
-  animation: convergence-flow 5s linear infinite;
-}
-
-.convergence-path-hospitality {
-  animation-direction: reverse;
 }
 
 .convergence-point {
@@ -1029,6 +992,13 @@ button {
   animation-delay: var(--word-delay, 0s);
 }
 
+@media (max-width: 1023px) {
+  .portfolio-route-network,
+  .tech-port {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .hero-duality {
     width: min(92vw, 29rem);
@@ -1050,10 +1020,6 @@ button {
 
   .project-glass {
     min-height: 23rem;
-  }
-
-  .tech-data-rail {
-    left: 50%;
   }
 
   .tech-system-entry {
