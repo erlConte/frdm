@@ -62,16 +62,17 @@ export default async function PortfolioPage({
 
   return (
     <div className="overflow-hidden">
-      <section className="relative px-6 pb-20 pt-20 sm:pb-28 sm:pt-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[34rem] w-[70rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(101,217,237,0.2),rgba(111,133,255,0.12)_35%,transparent_70%)] blur-2xl" />
-        <div className="mx-auto max-w-7xl">
+      <section className="relative px-6 pb-16 pt-16 sm:pb-20 sm:pt-20">
+        <div className="pointer-events-none absolute left-1/2 top-[-12rem] -z-10 h-[30rem] w-[64rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(101,217,237,0.18),rgba(111,133,255,0.1)_35%,transparent_70%)] blur-2xl" />
+        <div className="mx-auto max-w-5xl">
+          <h1 className="sr-only">{t("title")}</h1>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
             {t("eyebrow")}
           </p>
-          <h1 className="mt-5 max-w-5xl text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-7xl lg:text-8xl">
-            {t("title")}
-          </h1>
-          <p className="mt-7 max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mt-4 max-w-4xl text-balance font-display text-3xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">
+            {t("journeyTitle")}
+          </p>
+          <p className="mt-5 max-w-2xl text-balance text-sm leading-relaxed text-muted sm:text-base">
             {t("intro")}
           </p>
         </div>
@@ -103,7 +104,7 @@ export default async function PortfolioPage({
           )}
 
           {(tech.length > 0 || hospitality.length > 0) && (
-            <section className="relative mx-auto max-w-7xl px-4 pb-24 sm:px-6 sm:pb-32">
+            <section className="relative mx-auto max-w-7xl px-4 pb-0 sm:px-6">
               <ScrollReveal className="mx-auto max-w-4xl text-center">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
                   {t("tracks.pathsKicker")}
@@ -130,14 +131,15 @@ export default async function PortfolioPage({
             </section>
           )}
 
+          {projects.length > 0 && <PathsConvergence />}
+
           {projects.length > 0 && (
-            <section className="relative bg-[#101b24] px-4 py-28 text-white sm:px-6 sm:py-36">
+            <section className="relative bg-[#101b24] px-4 pb-28 pt-12 text-white sm:px-6 sm:pb-36 sm:pt-16">
               <div className="pointer-events-none absolute left-[-10rem] top-[-14rem] h-[32rem] w-[32rem] rounded-full bg-accent/20 blur-[110px]" />
               <div className="pointer-events-none absolute bottom-[-14rem] right-[-10rem] h-[30rem] w-[30rem] rounded-full bg-track-hosp/20 blur-[110px]" />
               <div className="relative mx-auto max-w-7xl text-center">
-                <PathsConvergence />
                 <ScrollReveal>
-                  <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
                     {t("tracks.crossKicker")}
                   </p>
                   <h2 className="mx-auto mt-4 max-w-4xl text-balance text-4xl font-semibold leading-[1] tracking-[-0.045em] sm:text-6xl">

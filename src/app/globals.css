@@ -323,32 +323,6 @@ button {
   isolation: isolate;
 }
 
-.portfolio-stream-lines {
-  z-index: -1;
-  overflow: visible;
-  opacity: 0.55;
-}
-
-.stream-path {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-dasharray: 3 8;
-  animation: stream-flow 14s linear infinite;
-}
-
-.stream-path-tech {
-  stroke: var(--track-tech);
-  filter: drop-shadow(0 0 7px rgba(49, 87, 246, 0.28));
-}
-
-.stream-path-hospitality {
-  stroke: var(--track-hosp);
-  filter: drop-shadow(0 0 7px rgba(155, 62, 87, 0.24));
-  animation-direction: reverse;
-}
-
 .portfolio-stream-label .glass {
   box-shadow: 0 14px 40px rgba(35, 59, 78, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
@@ -365,8 +339,6 @@ button {
 }
 
 .portfolio-stream-entry {
-  margin-inline: auto;
-  max-width: 32rem;
   transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 450ms ease;
 }
@@ -375,10 +347,6 @@ button {
   transform: translateY(-6px) rotate(-0.35deg);
   box-shadow: 0 30px 80px rgba(35, 59, 78, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
-}
-
-.portfolio-stream-hospitality .portfolio-stream-entry:hover {
-  transform: translateY(-6px) rotate(0.35deg);
 }
 
 .portfolio-stream-entry[data-current="true"] {
@@ -391,28 +359,189 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
-.stream-node {
+.tech-system-map {
+  border: 1px solid rgba(49, 87, 246, 0.1);
+  background-color: rgba(235, 242, 255, 0.38);
+  background-image:
+    linear-gradient(rgba(49, 87, 246, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49, 87, 246, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.tech-data-rail {
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--track-tech) 7%,
+    var(--cyan) 50%,
+    var(--track-tech) 93%,
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(49, 87, 246, 0.22);
+}
+
+.tech-system-entry {
+  margin-left: 2rem;
+  width: calc(100% - 2rem);
+  max-width: 32rem;
+}
+
+.tech-port {
+  position: absolute;
+  left: -2.35rem;
+  top: 50%;
+  z-index: 3;
+  width: 0.72rem;
+  height: 0.72rem;
+  border: 2px solid white;
+  border-radius: 0.2rem;
+  background: var(--track-tech);
+  box-shadow: 0 0 0 5px rgba(49, 87, 246, 0.12),
+    0 0 20px rgba(49, 87, 246, 0.3);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.tech-system-entry[data-current="true"] .tech-port {
+  background: #10b981;
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.12),
+    0 0 22px rgba(16, 185, 129, 0.34);
+}
+
+.hospitality-map {
+  border: 1px solid rgba(155, 62, 87, 0.12);
+  background:
+    radial-gradient(ellipse at 14% 14%, transparent 0 17%, rgba(155, 62, 87, 0.055) 17.2% 17.7%, transparent 18% 25%, rgba(155, 62, 87, 0.04) 25.2% 25.7%, transparent 26%),
+    radial-gradient(ellipse at 88% 58%, transparent 0 19%, rgba(218, 139, 56, 0.06) 19.2% 19.7%, transparent 20% 27%, rgba(218, 139, 56, 0.045) 27.2% 27.7%, transparent 28%),
+    linear-gradient(145deg, rgba(255, 247, 240, 0.7), rgba(250, 238, 229, 0.38));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.hospitality-route path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke: var(--track-hosp);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 5 9;
+  filter: drop-shadow(0 0 5px rgba(155, 62, 87, 0.2));
+  animation: map-route-flow 12s linear infinite;
+}
+
+.hospitality-compass {
   position: absolute;
   right: 1.4rem;
-  bottom: 1.4rem;
-  width: 0.5rem;
-  height: 0.5rem;
+  top: 1.3rem;
+  z-index: 2;
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border: 1px solid rgba(155, 62, 87, 0.18);
   border-radius: 50%;
-  background: var(--track-tech);
-  box-shadow: 0 0 0 6px rgba(49, 87, 246, 0.1);
+  color: var(--track-hosp);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  opacity: 0.72;
 }
 
-.portfolio-stream-hospitality .stream-node {
-  right: auto;
-  left: 1.4rem;
+.hospitality-compass i {
+  position: absolute;
+  width: 1px;
+  height: 1.5rem;
+  background: linear-gradient(to bottom, var(--track-hosp) 50%, rgba(155, 62, 87, 0.2) 50%);
+  transform: rotate(24deg);
+}
+
+.hospitality-compass span {
+  position: absolute;
+  top: -0.85rem;
+}
+
+.hospitality-stop-wrap {
+  width: 88%;
+}
+
+.hospitality-stop-left {
+  margin-right: auto;
+  transform: rotate(-0.45deg);
+}
+
+.hospitality-stop-right {
+  margin-left: auto;
+  transform: rotate(0.45deg);
+}
+
+.hospitality-map-stop {
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms ease;
+}
+
+.hospitality-map-stop:hover {
+  transform: translateY(-6px) rotate(0.35deg);
+  box-shadow: 0 30px 80px rgba(83, 52, 55, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.hospitality-map-stop[data-current="true"] {
+  border-color: rgba(16, 185, 129, 0.32);
+  background:
+    radial-gradient(circle at 94% 4%, rgba(52, 211, 153, 0.17), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 248, 243, 0.52));
+}
+
+.map-stop-pin {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50% 50% 50% 0;
   background: var(--track-hosp);
-  box-shadow: 0 0 0 6px rgba(155, 62, 87, 0.1);
+  color: white;
+  font-size: 0.52rem;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(105, 45, 60, 0.22);
 }
 
-.portfolio-stream-entry[data-current="true"] .stream-node {
-  background: #10b981;
-  box-shadow: 0 0 0 7px rgba(16, 185, 129, 0.12),
-    0 0 24px rgba(16, 185, 129, 0.34);
+.hospitality-stop-left .map-stop-pin {
+  right: -1rem;
+  transform: translate(50%, -50%) rotate(-45deg);
+}
+
+.hospitality-stop-right .map-stop-pin {
+  left: -1rem;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.map-stop-pin b {
+  display: block;
+  font: inherit;
+}
+
+.hospitality-stop-left .map-stop-pin b {
+  transform: rotate(45deg);
+}
+
+.hospitality-stop-right .map-stop-pin b {
+  transform: rotate(-135deg);
+}
+
+.paths-convergence-bridge {
+  background: linear-gradient(to bottom, transparent 0 44%, #101b24 44% 100%);
+}
+
+.convergence-stem {
+  stroke-dasharray: 4 8;
+  animation: convergence-flow 4s linear infinite;
 }
 
 .convergence-path {
@@ -501,7 +630,7 @@ button {
   }
 }
 
-@keyframes stream-flow {
+@keyframes map-route-flow {
   to {
     stroke-dashoffset: -100;
   }
@@ -575,6 +704,23 @@ button {
 
   .project-glass {
     min-height: 23rem;
+  }
+
+  .tech-data-rail {
+    left: 1rem;
+  }
+
+  .tech-system-entry {
+    margin-left: 1.35rem;
+    width: calc(100% - 1.35rem);
+  }
+
+  .tech-port {
+    left: -1.72rem;
+  }
+
+  .hospitality-stop-wrap {
+    width: 92%;
   }
 }
 

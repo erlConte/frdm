@@ -131,7 +131,7 @@ values
   'Food & Beverage Management',
   'Food & Beverage Management',
   'ITS Turismo Academy Roma',
-  '2024 – in corso',
+  '2024 – 2026',
   'Formazione superiore in Food & Beverage Management, con focus su gestione operativa e servizio nell''hospitality.',
   'Higher education in Food & Beverage Management, focused on operational management and hospitality service.',
   'Formación superior en Food & Beverage Management, con foco en gestión operativa y servicio en hospitality.',

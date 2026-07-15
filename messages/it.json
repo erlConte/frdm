@@ -51,7 +51,7 @@
     "nowRoleLabel": "Lavoro",
     "nowRole": "Commis de Bar — Hotel de Russie, Rocco Forte Hotels",
     "nowStudyLabel": "Formazione",
-    "nowStudy": "Food & Beverage Management e Ingegneria Informatica",
+    "nowStudy": "Ingegneria Informatica, dopo il percorso in Food & Beverage Management",
     "nowBuildLabel": "Costruisco",
     "nowBuild": "Mezchila, Enotempo e l'ecosistema FENAM",
     "nowExploreLabel": "Esploro",
@@ -69,6 +69,7 @@
   "portfolio": {
     "title": "Portfolio",
     "eyebrow": "Il percorso, fino ad oggi",
+    "journeyTitle": "Non una linea retta, ma esperienze che continuano a connettersi.",
     "intro": "Non una lista di tappe, ma un sistema in movimento: ciò che sto facendo ora, le esperienze che mi hanno formato e i progetti in cui mondi diversi si incontrano.",
     "sections": {
       "esperienza": "Esperienze professionali",

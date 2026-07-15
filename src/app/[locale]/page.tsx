@@ -124,8 +124,8 @@ export default async function HomePage({
                 <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-muted">
                   FRDM
                 </span>
-                <span className="mt-3 block font-display text-5xl font-semibold tracking-[-0.06em] text-foreground/90">
-                  01 / 02
+                <span className="mt-1 block font-display text-7xl font-semibold italic tracking-[-0.08em] text-foreground/90">
+                  &amp;
                 </span>
                 <span className="mt-3 block text-xs font-medium text-muted">{t("lensLabel")}</span>
               </div>
