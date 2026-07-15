@@ -82,12 +82,17 @@
       "kicker": "In corso adesso",
       "title": "Quello che sto costruendo oggi.",
       "intro": "Lavoro, studio e progetti attivi vengono prima della cronologia: sono il punto più fedele da cui capire dove sto andando.",
-      "badge": "In corso"
+      "badge": "In corso",
+      "networkTitle": "Un ecosistema imprenditoriale",
+      "networkText": "Tre progetti, un'unica rete tra relazioni multiculturali, digitale ed esperienze enogastronomiche."
     },
     "tracks": {
       "baseKicker": "La base, in breve",
       "baseTitle": "Le radici comuni",
-      "baseIntro": "Liceo scientifico, musica e lingue: fondamenta importanti, raccontate senza togliere spazio a ciò che è venuto dopo.",
+      "baseIntro": "Formazione scientifica, lingue ed esami musicali: le fondamenta, raccolte in modo essenziale.",
+      "rootsEducation": "Formazione di base",
+      "rootsLanguages": "Lingue",
+      "rootsMusic": "Esami musicali",
       "pathsKicker": "Due correnti",
       "pathsTitle": "Percorsi diversi, stessa direzione.",
       "pathsIntro": "Tecnologia e hospitality non sono due capitoli separati. Crescono in parallelo, si influenzano e continuano ad avvicinarsi mentre il percorso evolve.",

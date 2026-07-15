@@ -82,12 +82,17 @@
       "kicker": "Active now",
       "title": "What I am building today.",
       "intro": "Current work, studies and active projects come before chronology: they are the clearest place from which to understand where I am going.",
-      "badge": "In progress"
+      "badge": "In progress",
+      "networkTitle": "One entrepreneurial ecosystem",
+      "networkText": "Three projects, one network connecting multicultural relations, digital work and food-and-wine experiences."
     },
     "tracks": {
       "baseKicker": "The foundation, briefly",
       "baseTitle": "Common roots",
-      "baseIntro": "Scientific high school, music and languages: meaningful foundations, kept concise so they do not overshadow what came next.",
+      "baseIntro": "Scientific education, languages and music exams: the foundations, gathered into one concise view.",
+      "rootsEducation": "Early education",
+      "rootsLanguages": "Languages",
+      "rootsMusic": "Music exams",
       "pathsKicker": "Two currents",
       "pathsTitle": "Different paths, one direction.",
       "pathsIntro": "Technology and hospitality are not separate chapters. They grow in parallel, influence each other and move closer together as the journey evolves.",

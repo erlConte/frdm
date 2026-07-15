@@ -84,7 +84,7 @@ function TechSystem({
 
       <div className="tech-system-map relative rounded-[2.5rem] px-3 py-6 sm:px-6 sm:py-10">
         <div className="tech-data-rail" aria-hidden="true" />
-        <div className="relative space-y-12 sm:space-y-16 lg:space-y-20">
+        <div className="tech-system-entries relative flex flex-1 flex-col justify-evenly gap-12 sm:gap-16">
           {items.map((item, index) => (
             <ScrollReveal key={item.id} className={`reveal-delay-${Math.min(index % 3, 2)}`}>
               <article
@@ -102,6 +102,7 @@ function TechSystem({
             </ScrollReveal>
           ))}
         </div>
+        <div className="tech-system-terminal" aria-hidden="true" />
       </div>
     </div>
   );
@@ -123,50 +124,67 @@ function HospitalityMap({
   return (
     <div className="portfolio-stream portfolio-stream-hospitality">
       <div className="portfolio-stream-label sticky top-24 z-20 mb-10 flex justify-center lg:mb-14">
-        <span className="glass relative rounded-full px-5 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em]">
+        <span className="hospitality-map-label relative px-5 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em]">
           {label}
         </span>
       </div>
 
-      <div className="hospitality-map relative overflow-hidden rounded-[2.5rem] px-3 py-10 sm:px-6 sm:py-14">
+      <div className="hospitality-map relative overflow-visible rounded-[2.5rem] px-3 py-10 sm:px-6 sm:py-14">
+        <div className="hospitality-map-wash wash-one" aria-hidden="true" />
+        <div className="hospitality-map-wash wash-two" aria-hidden="true" />
         <div className="hospitality-compass" aria-hidden="true">
           <span>N</span>
           <i />
         </div>
+        <span className="hospitality-map-coordinates hospitality-map-coordinates-top" aria-hidden="true">41°54&apos;N · 12°29&apos;E</span>
+        <span className="hospitality-map-coordinates hospitality-map-coordinates-bottom" aria-hidden="true">— · — · ∞</span>
         <svg
           className="hospitality-route pointer-events-none absolute inset-0 h-full w-full"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path
-            d="M50 0 C 82 7, 75 17, 46 23 S 15 38, 51 45 S 84 58, 48 65 S 17 80, 52 87 S 67 96, 50 100"
-          />
+          <path d="M50 0 C 82 7, 75 17, 46 23 S 15 38, 51 45 S 84 58, 48 65 S 17 80, 52 87 S 67 96, 50 100" />
         </svg>
 
-        <div className="relative space-y-14 sm:space-y-20 lg:space-y-24">
+        <div className="relative space-y-16 py-8 sm:space-y-24 sm:py-12 lg:space-y-28">
           {items.map((item, index) => (
             <ScrollReveal
               key={item.id}
               className={`hospitality-stop-wrap ${index % 2 === 0 ? "hospitality-stop-left" : "hospitality-stop-right"}`}
             >
               <article
-                className="hospitality-map-stop glass relative overflow-visible rounded-[1.8rem] p-6 sm:p-7"
+                className="hospitality-map-stop relative overflow-visible px-4 py-3 sm:px-6 sm:py-5"
                 data-current={isCurrentItem(item) || undefined}
               >
                 <span className="map-stop-pin" aria-hidden="true">
                   <b>{String(index + 1).padStart(2, "0")}</b>
                 </span>
-                <EntryContent
-                  item={item}
-                  locale={locale}
-                  groupLabel={groupLabels[item.section]}
-                  currentLabel={currentLabel}
-                />
+                <div className="relative z-10">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <span className="map-annotation">{groupLabels[item.section]}</span>
+                    {isCurrentItem(item) ? (
+                      <span className="map-current-stamp">{currentLabel}</span>
+                    ) : item.period ? (
+                      <span className="map-period">{item.period}</span>
+                    ) : null}
+                  </div>
+                  <h3 className="map-entry-title mt-3 text-balance font-display text-2xl font-semibold leading-[1.05] sm:text-3xl">
+                    {pickLocalized(item, locale, "title")}
+                  </h3>
+                  {item.subtitle && <p className="mt-2 text-sm font-semibold text-track-hosp">{item.subtitle}</p>}
+                  {pickLocalized(item, locale, "description") && (
+                    <p className="map-entry-description mt-3 text-sm leading-relaxed">
+                      {pickLocalized(item, locale, "description")}
+                    </p>
+                  )}
+                  {isCurrentItem(item) && item.period && <p className="map-period mt-3">{item.period}</p>}
+                </div>
               </article>
             </ScrollReveal>
           ))}
         </div>
+        <div className="hospitality-map-terminal" aria-hidden="true"><span>×</span></div>
       </div>
     </div>
   );
@@ -189,7 +207,7 @@ export function PortfolioStreams({
 }) {
   return (
     <div className="portfolio-streams relative mt-12 lg:mt-16">
-      <div className="relative grid gap-16 lg:grid-cols-2 lg:items-start lg:gap-16 xl:gap-24">
+      <div className="relative grid gap-16 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24">
         <TechSystem
           label={labels.tech}
           items={tech}

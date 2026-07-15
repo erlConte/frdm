@@ -98,7 +98,13 @@ export default async function PortfolioPage({
                     {t("active.intro")}
                   </p>
                 </div>
-                <ActiveNow items={activeItems} locale={appLocale} labels={groupLabels} />
+                <ActiveNow
+                  items={activeItems}
+                  locale={appLocale}
+                  labels={groupLabels}
+                  networkTitle={t("active.networkTitle")}
+                  networkText={t("active.networkText")}
+                />
               </ScrollReveal>
             </section>
           )}
@@ -177,7 +183,15 @@ export default async function PortfolioPage({
                   </p>
                 </div>
                 <div className="relative z-10">
-                  <RootsStrip items={base} locale={appLocale} />
+                  <RootsStrip
+                    items={base}
+                    locale={appLocale}
+                    labels={{
+                      education: t("tracks.rootsEducation"),
+                      languages: t("tracks.rootsLanguages"),
+                      music: t("tracks.rootsMusic"),
+                    }}
+                  />
                 </div>
               </ScrollReveal>
             </section>

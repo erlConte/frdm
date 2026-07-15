@@ -68,8 +68,6 @@ export default async function HomePage({
   return (
     <>
       <LiquidHero>
-        <div className="liquid-aura pointer-events-none -z-10" aria-hidden="true" />
-
         <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-center gap-8 px-6 pb-16 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pb-20 md:pt-6 lg:px-14">
           <div className="relative z-10 max-w-3xl pt-4 md:pt-0">
             <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/75 bg-white/48 px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted shadow-sm backdrop-blur-xl">
@@ -118,25 +116,34 @@ export default async function HomePage({
             </div>
           </div>
 
-          <div className="relative z-0 hidden min-h-[34rem] items-center justify-center md:flex" aria-hidden="true">
-            <div className="liquid-lens grid place-items-center">
-              <div className="relative z-10 text-center">
-                <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-muted">
-                  FRDM
-                </span>
-                <span className="mt-1 block font-display text-7xl font-semibold italic tracking-[-0.08em] text-foreground/90">
-                  &amp;
-                </span>
-                <span className="mt-3 block text-xs font-medium text-muted">{t("lensLabel")}</span>
+          <div className="hero-duality relative z-0 flex min-h-[24rem] items-center justify-center md:min-h-[36rem]" aria-hidden="true">
+            <div className="hero-tech-world">
+              <div className="hero-tech-glass">
+                <svg viewBox="0 0 240 240" fill="none">
+                  <circle cx="120" cy="120" r="78" />
+                  <path d="M42 98h42l18-27h45l18 27h34" />
+                  <path d="M55 148h38l18 25h54l16-25h18" />
+                  <path d="M120 42v40m0 76v40M42 120h40m76 0h40" />
+                  <circle cx="102" cy="71" r="5" />
+                  <circle cx="165" cy="98" r="5" />
+                  <circle cx="111" cy="173" r="5" />
+                </svg>
               </div>
             </div>
 
-            <div className="glass absolute left-[2%] top-[18%] rounded-full px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-accent">
-              Digital systems
+            <div className="hero-hospitality-world">
+              <svg viewBox="0 0 320 360" fill="none">
+                <path className="hero-map-contour" d="M54 92c34-48 105-65 163-41 61 25 86 87 65 143-24 64-91 117-159 101C57 279 22 218 35 161c5-24 8-48 19-69Z" />
+                <path className="hero-map-contour contour-2" d="M78 108c27-32 82-44 125-28 46 17 68 62 52 105-18 48-69 88-120 76-49-12-76-57-67-100 4-18 3-37 10-53Z" />
+                <path className="hero-map-route" d="M77 244c35-9 41-46 71-60 26-12 61 5 73-23 9-20-8-39 5-55" />
+                <path className="hero-map-x" d="m218 91 18 18m0-18-18 18" />
+                <circle className="hero-map-stop" cx="77" cy="244" r="5" />
+                <circle className="hero-map-stop" cx="148" cy="184" r="5" />
+                <circle className="hero-map-stop" cx="221" cy="161" r="5" />
+              </svg>
             </div>
-            <div className="glass absolute bottom-[16%] right-[1%] rounded-full px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-track-hosp">
-              Human service
-            </div>
+
+            <div className="hero-fusion-core" />
           </div>
         </div>
 
@@ -168,10 +175,7 @@ export default async function HomePage({
           <ScrollReveal>
             <article className="world-card world-card-tech glass group h-full p-7 sm:p-10">
               <div className="relative z-10 flex h-full flex-col">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-white/80 bg-white/50 text-sm font-semibold text-accent shadow-sm">
-                    01
-                  </span>
+                <div className="flex items-center justify-end gap-4">
                   <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent">
                     Tech & Digital
                   </span>
@@ -194,12 +198,9 @@ export default async function HomePage({
           </ScrollReveal>
 
           <ScrollReveal className="reveal-delay-1">
-            <article className="world-card world-card-hospitality glass group h-full p-7 sm:p-10">
+            <article className="world-card world-card-hospitality group h-full p-7 sm:p-10">
               <div className="relative z-10 flex h-full flex-col">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-white/80 bg-white/50 text-sm font-semibold text-track-hosp shadow-sm">
-                    02
-                  </span>
+                <div className="flex items-center justify-end gap-4">
                   <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-track-hosp">
                     Hospitality & Wine
                   </span>
@@ -227,10 +228,7 @@ export default async function HomePage({
             <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
             <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
-                  01 + 02
-                </span>
-                <h3 className="mt-2 font-display text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
+                <h3 className="font-display text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
                   {t("bridgeTitle")}
                 </h3>
               </div>
